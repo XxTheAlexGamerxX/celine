@@ -30,4 +30,18 @@ async def on_member_join(member):
 	
 	await client.send_message(discord.Object(id='535598974980325386'), 'Welcome <@'+str(member.id)+'> to the **Coding Helpcenter**. You are our**'+str(membercount)+''+str(numberending)+'** member! We appreciate your stay and hope that we can help you!')
 	
+@client.command(pass_context=True)
+async def ican(ctx, role):
+	if ctx.message.channel == discord.Object(id='533784202039132170'):
+		if role in ctx.message.author.roles:
+			await client.say('Whoops... Looks as if ou already have that role ^0^')
+		if not role in ctx.message.server.roles:
+			await client.say('That role doesn\'t exist >.< Try it again!)
+		if role in ctx.message.server.roles and not role in ctx.message.author.roles:
+			await client.add_roles(ctx.message.author, role)
+			await client.say('**'+ctx.message.author.name+'**, successfully gave you the role `'+role+'`!')
+		
+	else:
+		return
+					 
 client.run(os.getenv('Token'))
