@@ -1,0 +1,11 @@
+discord
+
+asyncio
+
+time
+
+random
+
+tinydb
+
+discord.py
