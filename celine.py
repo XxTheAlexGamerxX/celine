@@ -26,6 +26,6 @@ async def on_member_join(member):
 	if not membercount % 10 == 1 and not membercount % 10 == 2:
 		numberending = 'th'
 	
-	await client.send_message(discord.Object(id='535598974980325386'), 'Welcome <@'+str(member.id)+'> to the **Coding Helpcenter**. You are our**'+str(membercount)+numberending'** member! We appreciate your stay and hope that we can help you!')
+	await client.send_message(discord.Object(id='535598974980325386'), 'Welcome <@'+str(member.id)+'> to the **Coding Helpcenter**. You are our**'+str(membercount)+''+numberending'** member! We appreciate your stay and hope that we can help you!')
 	
 client.run(os.getenv('Token')
