@@ -17,7 +17,7 @@ async def on_member_join(member):
 	
 	membercount = int(member.server.member_count)
 	
-	
+	numberending = ''
 	
 	if membercount % 10 == 1:
 		numberending = 'st'
