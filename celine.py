@@ -30,6 +30,8 @@ async def on_member_join(member):
 	
 	await client.send_message(discord.Object(id='535598974980325386'), 'Welcome <@'+str(member.id)+'> to the **Coding Helpcenter**. You are our**'+str(membercount)+''+str(numberending)+'** member! We appreciate your stay and hope that we can help you!')
 	
+	await client.process_commands(member)
+	
 @client.command(pass_context=True)
 async def ican(ctx, role):
 	if ctx.message.channel == discord.Object(id='533784202039132170'):
