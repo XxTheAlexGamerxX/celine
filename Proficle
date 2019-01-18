@@ -1,1 +1,1 @@
-worker: celine.py
+worker: python celine.py
