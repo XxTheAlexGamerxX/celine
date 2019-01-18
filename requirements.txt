@@ -1,9 +1,5 @@
 discord
 
-time
-
-random
-
 tinydb
 
 discord.py
