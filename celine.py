@@ -4,8 +4,6 @@ import os
 import random
 import time
 
-TOKEN='NTM1NTk2NzA1NzQ4NDg0MDk2.DyPOcg.IXgT3MwWs0lrUF55yD0Z_vjzxL0'
-
 client = commands.Bot(command_prefix = '+')
 client.remove_command('help')
 
@@ -30,4 +28,4 @@ async def on_member_join(member):
 	
 	await client.send_message(discord.Object(id='535598974980325386'), 'Welcome <@'+str(member.id)+'> to the **Coding Helpcenter**. You are our**'+str(membercount)+numberending'** member! We appreciate your stay and hope that we can help you!')
 	
-client.run(TOKEN)
+client.run(os.getenv('Token')
