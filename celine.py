@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands
-
+import os
 import random
 import time
+
 client = commands.Bot(command_prefix = '+')
 client.remove_command('help')
 
