@@ -56,7 +56,7 @@ async def icant(ctx, *, todelrole: str):
 @commands.has_permissions(ban_members=True)
 async def purge(ctx, number):
 	messages = []
-	async for message in client.logs_from(ctx.message.channel, limit=int(number)):
+	async for message in client.logs_from(ctx.message.channel, limit=int(number)+1):
 		messages.append(message)
 	await client.delete_messages(messages)
 	embed=discord.Embed(title='Messages deleted!', color=0xff0000)
