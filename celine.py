@@ -48,8 +48,19 @@ async def icant(ctx, *, todelrole: str):
 		else:
 			if discord.utils.get(ctx.message.server.roles, name=todelrole) in ctx.message.author.roles:
 				await client.remove_roles(ctx.message.author, discord.utils.get(ctx.message.server.roles, name=todelrole))
-				await client.say('**'+ctx.message.author.name+'**, successfully removedthe role `'+todelrole+'` from you!')
+				await client.say('**'+ctx.message.author.name+'**, successfully removed the role `'+todelrole+'` from you!')
 			else:
 				await client.say('You don\'t even have that role >.< Can\'t remove it!')
+
+@client.command(pass_context=True)
+@commands.has_permissions(ban_members=True)
+async def purge(ctx, number):
+	messages = []
+	async for message in client.logs_from(ctx.message.channel, limit=int(number)):
+		messages.append(message)
+	await client.delete_messages(messages)
+	embed=discord.Embed(title='Messages deleted!', color=0xff0000)
+	embed.add_field(name='Number of messages:', value=str(number), inline=False)
+	await client.say(embed=embed)
 					 
 client.run(os.getenv('Token'))
