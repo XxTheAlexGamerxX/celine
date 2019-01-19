@@ -35,7 +35,7 @@ async def on_member_join(member):
 @client.command(pass_context=True)
 async def ican(ctx, userrole):
         availableroles = ['Java', 'C/C++/C#', 'Python', 'Visual Basic .NET', 'Perl', 'Ruby', 'Swift', 'HTML', 'PHP', 'CSS', 'Javascript']
-	if ctx.message.channel == discord.Object(id='533784202039132170'):
+	if ctx.message.channel == discord.Object(id=533784202039132170):
 		if userrole in ctx.message.author.roles:
 			await client.say('Whoops... Looks as if ou already have that role ^0^')
 		if not userrole in availableroles:
