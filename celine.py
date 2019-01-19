@@ -33,14 +33,15 @@ async def on_member_join(member):
 	await client.process_commands(member)
 	
 @client.command(pass_context=True)
-async def ican(ctx, role):
+async def ican(ctx, userrole):
+        availableroles = ['Java', 'C/C++/C#', 'Python', 'Visual Basic .NET', 'Perl', 'Ruby', 'Swift', 'HTML', 'PHP', 'CSS', 'Javascript']
 	if ctx.message.channel == discord.Object(id='533784202039132170'):
-		if role in ctx.message.author.roles:
+		if userrole in ctx.message.author.roles:
 			await client.say('Whoops... Looks as if ou already have that role ^0^')
-		if not role in ctx.message.server.roles:
+		if not userrole in availableroles:
 			await client.say('That role doesn\'t exist >.< Try it again!')
-		if role in ctx.message.server.roles and not role in ctx.message.author.roles:
-			await client.add_roles(ctx.message.author, role)
+		if userrole in availableroles and not role in ctx.message.author.roles:
+			await client.add_roles(ctx.message.author, userrole)
 			await client.say('**'+ctx.message.author.name+'**, successfully gave you the role `'+role+'`!')
 		
 	else:
