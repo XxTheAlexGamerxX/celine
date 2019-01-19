@@ -33,7 +33,7 @@ async def ican(ctx, userrole):
 		if not userrole in availableroles:
 			await client.say('That role doesn\'t exist >.< Try it again!')
 		if userrole in availableroles and not userrole in ctx.message.author.roles:
-			await client.add_roles(ctx.message.author, userrole)
+			await client.add_roles(ctx.message.author, discord.utils.get(ctx.message.server.roles, name=userrole))
 			await client.say('**'+ctx.message.author.name+'**, successfully gave you the role `'+userrole+'`!')
 		else:
 			return
