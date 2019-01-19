@@ -38,5 +38,18 @@ async def ican(ctx, *, userrole: str):
 				await client.say('**'+ctx.message.author.name+'**, successfully gave you the role `'+userrole+'`!')
 	else:
 		return
+	
+@client.command(pass_context=True)
+async def icant(ctx, *, todelrole: str):
+	availableroles = ['Java', 'C/C++/C#', 'Python', 'Visual Basic .NET', 'Perl', 'Ruby', 'Swift', 'HTML', 'PHP', 'CSS', 'Javascript']
+	if ctx.message.channel.id == '533784202039132170':
+		if not todelrole in availableroles:
+			await client.say('That role doesn\'t exist or is not available for you >.< Try it again!')
+		else:
+			if discord.utils.get(ctx.message.server.roles, name=todelrole) in ctx.message.author.roles:
+				await client.remove_roles(ctx.message.author, discord.utils.get(ctx.message.server.roles, name=todelrole))
+				await client.say('**'+ctx.message.author.name+'**, successfully removedthe role `'+todelrole+'` from you!')
+			else:
+				await client.say('You don\'t even have that role >.< Can\'t remove it!')
 					 
 client.run(os.getenv('Token'))
